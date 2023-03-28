@@ -45,8 +45,15 @@ const userSchema = new mongoose.Schema({
 
   followers: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      users: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+
+      status: {
+        type: String,
+        enum: ["pending", "accepted"],
+      },
     },
   ],
 
@@ -155,4 +162,12 @@ userSchema.statics.loginUser = async function (username, password) {
 
 const User = mongoose.model("User", userSchema);
 
+//watching changes that happen on document
+const userStream = User.watch();
+
+userStream.on("change", (change) => {
+  console.log("CHANGE : ", change);
+});
+
+module.exports = { userStream };
 module.exports = User;

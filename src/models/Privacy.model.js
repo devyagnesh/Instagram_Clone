@@ -4,6 +4,7 @@ const privacySchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
+    unique: true,
   },
 
   isPrivate: {
@@ -19,6 +20,13 @@ const privacySchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+
+  date: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 const Privacy = mongoose.model("Privacy", privacySchema);
+
+module.exports = Privacy;
