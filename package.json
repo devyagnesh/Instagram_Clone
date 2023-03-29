@@ -10,6 +10,8 @@
   "author": "yagnesh chavda and ram dudhaiya",
   "license": "ISC",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@ffprobe-installer/ffprobe": "^2.0.0",
     "bcryptjs": "^2.4.3",
     "chalk": "^5.2.0",
     "cookie-parser": "^1.4.6",

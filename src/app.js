@@ -14,6 +14,7 @@ const db = require("./config/Db");
 const userRoute = require("./routes/user.routes");
 const tokenRoute = require("./routes/token.routes");
 const privacyRoute = require("./routes/privacy.routes");
+const postRoute = require("./routes/posts.routes");
 
 app.use(express.static("upload/profile/"));
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use("/api/user", userRoute);
 app.use("/api/auth", tokenRoute);
 app.use("/api/privacy", privacyRoute);
+app.use("/api/media", postRoute);
 /*
     || ++++++ GLOBAL ERROR HANDLING MIDDLEWARE ++++++ ||
 */

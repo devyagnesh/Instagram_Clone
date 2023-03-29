@@ -165,9 +165,5 @@ const User = mongoose.model("User", userSchema);
 //watching changes that happen on document
 const userStream = User.watch();
 
-userStream.on("change", (change) => {
-  console.log("CHANGE : ", change);
-});
-
 module.exports = { userStream };
 module.exports = User;
